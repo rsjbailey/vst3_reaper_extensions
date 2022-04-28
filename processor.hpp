@@ -14,6 +14,7 @@
 // handle to the API.
 void APITest();
 
+// Note we derive from juce::VST3ClientExtensions
 class ExtTestProcessor : public juce::AudioProcessor, public juce::VST3ClientExtensions {
 public:
     ExtTestProcessor() : AudioProcessor(
@@ -39,6 +40,7 @@ public:
         VST3ClientExtensions::setIHostApplication(unknown);
     }
 
+    // Boilerplate to get a valid plugin
     const juce::String getName() const override;
     void prepareToPlay(double sampleRate, int maximumExpectedSamplesPerBlock) override;
     void releaseResources() override;
